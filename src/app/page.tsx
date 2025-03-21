@@ -1,103 +1,75 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const articles = [
+  {
+    title: "Accesibilidad en Computadoras",
+    desc: "Descubre herramientas para agilizar el uso de una computadora",
+    img: "https://i.pinimg.com/736x/de/0d/87/de0d8775d21ffc398bbd2b4e8c061209.jpg",
+    href: "blog1",
+  },
+  {
+    title: "Herramientas de Accesibilidad en Dispositivos Móviles",
+    desc: "Descubre cómo los dispositivos móviles pueden ser herramientas para personas con discapacidades visuales y auditivas.",
+    img: "https://st2.depositphotos.com/4218696/47626/i/950/depositphotos_476261554-stock-photo-happy-disabled-black-man-in.jpg",
+    href: "blog2",
+  },
+  {
+    title: "Herramientas de Accesibilidad en Navegadores",
+    desc: "",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiEm30dTbaWawGmOykaqxY0pkJHWpNLYpr-w&s",
+    href: "blog3",
+  },
+  {
+    title: "Accesibilidad en Google Maps",
+    desc: "Google Maps ofrece opciones de rutas accesibles para personas con discapacidades motrices",
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/09/cd/9d/09cd9d82-a550-68da-5b47-3d0662632c44/logo_maps_ios_color-0-1x_U007emarketing-0-0-0-7-0-0-0-85-220-0.png/1200x630wa.png",
+    href: "blog4",
+  },
+  {
+    title: "Herramientas Basadas en IA para Personas con Discapacidad",
+    desc: "Herramientas basadas en IA mejoran la accesibilidad y promueven la inclusión para personas con diversas discapacidades.",
+    img: "https://cdn.prod.website-files.com/64c96252c4314a904a4fb7bd/6722933ac6ab116274337e2b_La%20Inteligencia%20Artificial%20ofrece%20alternativas%20para%20las%20personas%20que%20tienen%20alguna%20discapacidad.webp",
+    href: "blog4",
+  },
+]
+
+type CardProps = {
+  title: string;
+  desc: string;
+  img: string;
+  href: string;
+};
+
+const Card = ({ title, desc, img, href }: CardProps) => {
+  return (
+    <Link key={title} href={href}>
+      <article className="bg-[#D0E7F7] min-h-96 border border-slate-300 rounded-md cursor-pointer">
+        <img
+          className="h-52 w-full object-cover"
+          src={img}
+          alt={`Imagen - ${title}`}
+        />
+        <div className="p-4">
+          <h3 className="text-xl font-semibold">{title}</h3>
+          <p>{desc}</p>
+        </div>
+      </article>
+    </Link>
+  );
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <main className="grid grid-cols-1 lg:grid-cols-4 gap-4 w-12/12 px-2 lg:w-10/12 mx-auto">
+      {articles.map(({desc, href, img, title}, i) => (
+        <Card
+          key={i}
+          title={title}
+          img={img}
+          href={`/articles/${href}`}
+          desc={desc}
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      ))}
+    </main>
   );
 }
