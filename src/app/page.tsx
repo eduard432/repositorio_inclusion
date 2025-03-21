@@ -16,7 +16,7 @@ const articles = [
   {
     title: "Herramientas de Accesibilidad en Navegadores",
     desc: "",
-    img: "https://i.blogs.es/ed6a0c/hero/1366_2000.jpeg,
+    img: "https://i.blogs.es/ed6a0c/hero/1366_2000.jpeg",
     href: "blog3",
   },
   {
