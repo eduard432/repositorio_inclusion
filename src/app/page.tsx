@@ -29,7 +29,7 @@ const articles = [
     title: "Herramientas Basadas en IA para Personas con Discapacidad",
     desc: "Herramientas basadas en IA mejoran la accesibilidad y promueven la inclusión para personas con diversas discapacidades.",
     img: "https://cdn.prod.website-files.com/64c96252c4314a904a4fb7bd/6722933ac6ab116274337e2b_La%20Inteligencia%20Artificial%20ofrece%20alternativas%20para%20las%20personas%20que%20tienen%20alguna%20discapacidad.webp",
-    href: "blog4",
+    href: "blog5",
   },
 ]
 
